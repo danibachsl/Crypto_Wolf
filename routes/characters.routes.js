@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 const alert = require("alert");
 const isLoggedIn = require("../middleware/isLoggedIn");
-const Character = require("../models/Character.model");
+const Crypto = require("../models/Crypto.model");
 const User = require("../models/User.model");
 const Api = require("../services/ApiHandler");
 const CryptosAPI = new Api()
@@ -48,11 +48,11 @@ router.get('/crypto_chart',(req, res)=>{
 router.post("/add-favorite", isLoggedIn ,(req, res) =>{
 const query = { name, status, species, gender, image, apiId } = req.body
 const idToCheck = req.body.apiId;
-    Character.find({apiId: idToCheck})
+    Crypto.find({apiId: idToCheck})
 	.then (charArray => {
 		//comprobar si ese apiId ya esta en db cryptos
 		if (charArray.length === 0) {
-            Character
+            Crypto
                 .create(query)
                 .then(result => {
                   User
