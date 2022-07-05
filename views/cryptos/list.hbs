@@ -1,6 +1,6 @@
 <br><h2>Cryptocurrencies ranking</h2><br>
 
-<table class="table table-hover align-middle">
+<table class="table table-hover text_align: right">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -12,7 +12,7 @@
       <th scope="col">24h %</th>
     </tr>
   </thead>
-  {{!-- <img class="coin-logo" src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png" loading="lazy" alt="USDC logo"> --}}
+  
   <tbody>
     {{#each cryptos}}
       <tr>
@@ -22,9 +22,9 @@
 </svg></button> {{market_cap_rank}}</th>
         <td><img class="coin-logo" src="{{image}}" loading="lazy" width="24" height="24">  {{name}} {{symbol}}</td>
         <td>${{current_price}}</td>
-        <td>{{market_cap}}</td>
+        <td>${{market_cap}}</td>
         <td>${{total_volume}}</td>
-        <td>{{circulating_supply}}</td>
+        <td>{{circulating_supply}} {{symbol}}</td>
         <td>{{price_change_percentage_24h}}%</td>
       </tr>
       </form>

@@ -17,7 +17,6 @@ router.get('/cryptos',(req, res)=>{
     })
     .catch(err => console.log(err));
     
-
 })
 
 router.get('/community',(req, res)=>{
