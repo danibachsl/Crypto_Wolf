@@ -35,6 +35,15 @@ router.get('/news',(req, res)=>{
 
 })
 
+router.get('/crypto_chart',(req, res)=>{
+
+    res.render(`cryptos/crypto_chart`)
+
+    .catch(err => console.log(err));
+
+})
+
+
 
 router.post("/add-favorite", isLoggedIn ,(req, res) =>{
 const query = { name, status, species, gender, image, apiId } = req.body
