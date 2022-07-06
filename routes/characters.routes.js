@@ -12,8 +12,6 @@ router.get('/cryptos', isLoggedIn ,(req, res)=>{
     CryptosAPI
     .getAllCryptos()
     .then((allCryptos) => {
-        console.log(req.session)
-        console.log(req.session.user)
         // res.render(`cryptos/list`, {cryptos: allCryptos.data.results} )
         res.render(`cryptos/list`, {cryptos: allCryptos.data, user: req.session.user})
     })
