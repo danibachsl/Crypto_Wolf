@@ -3,6 +3,9 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: black;
 }
+h2 {
+  color: white;
+}
 
 a {
   color: #00b7ff;
