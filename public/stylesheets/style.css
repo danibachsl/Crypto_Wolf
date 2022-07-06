@@ -18,3 +18,7 @@ h1 {
 .error{
   color: red;
 }
+
+.navbar-custom {
+  background-color: black;
+}
