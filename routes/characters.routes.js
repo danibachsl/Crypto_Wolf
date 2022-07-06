@@ -37,8 +37,8 @@ router.get('/news', isLoggedIn ,(req, res)=>{
 
 router.get('/crypto_chart', isLoggedIn ,(req, res)=>{
 
-    res.render(`cryptos/crypto_chart`, {user: req.session.user})
-
+    // res.render(`cryptos/crypto_chart`, {user: req.session.user})
+    res.render("./chart_index.html")
     .catch(err => console.log(err));
 
 })

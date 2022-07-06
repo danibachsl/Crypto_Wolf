@@ -1,0 +1,117 @@
+body {
+    background-color: #181f38;
+    color: white;
+    font-family: sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+}
+
+header p {
+    margin-top: 10px;
+}
+
+.logo {
+    width: 50px;
+    margin-right: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+main {
+    margin: 60px;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 1.6em;
+    font-weight: 500;
+}
+
+h2 {
+    font-weight: 200;
+}
+
+hr {
+    border-color: #939393;
+}
+
+figure {
+    background-color: #242b42;
+    padding: 20px
+}
+
+.height-300 {
+    height: 300px;
+    position: relative;
+}
+
+/* GRID */
+
+.columns-container {
+    display: flex;
+}
+
+.one-half-column {
+    width: 50%;
+}
+
+.one-third-column {
+    width: 33.33%;
+    margin: 30px 10px;
+}
+
+.one-third-column h2 {
+    font-size: 1.2em;
+}
+
+.two-thirds-column {
+    width: 66.66%;
+}
+
+.one-full-column {
+    width: auto;
+}
+
+@media screen and (max-width: 900px) {
+
+    figure {
+        padding: 10px;
+        margin: 0 10px 50px 10px;
+    }
+
+    main {
+        margin: 60px 30px;
+    }
+
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+    .columns-container {
+        display: block;
+    }
+
+    .one-half-column,
+    .one-third-column,
+    .two-thirds-column {
+        width: auto;
+    }
+
+    figure {
+        padding: 10px;
+        margin: 0 0 50px 0;
+        display: block;
+    }
+
+    main {
+        margin: 60px 20px;
+    }
+
+}
