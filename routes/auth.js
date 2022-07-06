@@ -34,7 +34,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
   }
 
   //   ! This use case is using a regular expression to control for special characters and min length
-  /*
+  
   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 
   if (!regex.test(password)) {
@@ -43,7 +43,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
         "Password needs to have at least 8 chars and must contain at least one number, one lowercase and one uppercase letter.",
     });
   }
-  */
+
 
   // Search the database for a user with the username submitted in the form
   User.findOne({ username }).then((found) => {
@@ -128,6 +128,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
             .render("auth/login", { errorMessage: "Wrong credentials." });
         }
         req.session.user = user;
+
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
         return res.redirect("/");
       });
@@ -141,7 +142,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     });
 });
 
-router.get("/logout", isLoggedIn, (req, res) => {
+router.get("/auth/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       return res
@@ -151,5 +152,13 @@ router.get("/logout", isLoggedIn, (req, res) => {
     res.redirect("/");
   });
 });
+
+// router.get('/logout', (req, res, next) => {
+//   req.session.destroy(err => {
+//     if (err) next(err);
+//   });
+//   res.redirect('/');
+// });
+
 
 module.exports = router;

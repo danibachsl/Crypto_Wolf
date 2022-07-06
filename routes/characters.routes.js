@@ -7,37 +7,39 @@ const User = require("../models/User.model");
 const Api = require("../services/ApiHandler");
 const CryptosAPI = new Api()
 
-router.get('/cryptos',(req, res)=>{
+router.get('/cryptos', isLoggedIn ,(req, res)=>{
     
     CryptosAPI
     .getAllCryptos()
     .then((allCryptos) => {
+        console.log(req.session)
+        console.log(req.session.user)
         // res.render(`cryptos/list`, {cryptos: allCryptos.data.results} )
-        res.render(`cryptos/list`, {cryptos: allCryptos.data})
+        res.render(`cryptos/list`, {cryptos: allCryptos.data, user: req.session.user})
     })
     .catch(err => console.log(err));
     
 })
 
-router.get('/community',(req, res)=>{
+router.get('/community', isLoggedIn ,(req, res)=>{
 
-    res.render(`community`)
-
-    .catch(err => console.log(err));
-
-})
-
-router.get('/news',(req, res)=>{
-
-    res.render(`news`)
+    res.render(`community`, {user: req.session.user})
 
     .catch(err => console.log(err));
 
 })
 
-router.get('/crypto_chart',(req, res)=>{
+router.get('/news', isLoggedIn ,(req, res)=>{
 
-    res.render(`cryptos/crypto_chart`)
+    res.render(`news`, {user: req.session.user})
+
+    .catch(err => console.log(err));
+
+})
+
+router.get('/crypto_chart', isLoggedIn ,(req, res)=>{
+
+    res.render(`cryptos/crypto_chart`, {user: req.session.user})
 
     .catch(err => console.log(err));
 
@@ -85,7 +87,7 @@ const idToCheck = req.body.apiId;
 })
 
 
-router.post("/delete-favorite",isLoggedIn,(req,res)=>{
+router.post("/delete-favorite", isLoggedIn, (req,res)=>{
     const {id} = req.body
     User.findByIdAndUpdate(req.user._id,{$pull : {favorites : id}})
     .then(()=>{

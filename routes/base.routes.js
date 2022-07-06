@@ -5,7 +5,7 @@ const User = require("../models/User.model");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  res.render("index");
+  res.render("index", {user: req.session.user});
 });
 
 router.get("/profile", isLoggedIn, (req, res, next) =>{

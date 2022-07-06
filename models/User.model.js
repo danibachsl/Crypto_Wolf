@@ -6,9 +6,9 @@ const userSchema = new Schema({
   password: String,
   favorites:  [{	
     type: Schema.Types.ObjectId,
-		ref: "Character"
+		ref: "Crypto"
   }]
-  //referencias de la bd characrters
+  //referencias de la bd characters
 });
 
 const User = model("User", userSchema);
