@@ -11,9 +11,12 @@
 </head>
 
 <body>
+  {{#each cryptos}}
+    <p>{{ this }}</p>
+  {{/each}}
     <br>
-    <a class="btn btn-outline-light" href="https://bitcoin.org/" role="button">bitcoin.org</a>
-    <a class="btn btn-outline-light" href="https://github.com/bitcoin/bitcoin" role="button">Source code</a><br>
+    <a class="btn btn-outline-light" href="https://bitcoin.org/" target="=_blank" role="button">bitcoin.org</a>
+    <a class="btn btn-outline-light" href="https://github.com/bitcoin/bitcoin" target="=_blank" role="button">Source code</a><br>
     
     <br>
     <div class="card">
@@ -39,6 +42,17 @@ Some concepts for a similar type of a decentralized electronic currency precede 
 
     <script>
         const labels = [
+          'January 19',
+          'July 19',
+          'March 20',
+          'May 20',
+          'Sept 21',
+          'February 21',
+          'April 21',
+          'July 21',
+          'September 21',
+          'December 21',
+          'November 21',
           'January 22',
           'February 22',
           'March 22',
@@ -54,7 +68,7 @@ Some concepts for a similar type of a decentralized electronic currency precede 
             label: 'Bitcoin / USD',
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
-            data: [47296, 38438, 44000, 44716, 37800, 31370, 19400],
+            data: [3845, 12000, 5200, 10700, 40200, 30400, 63000, 30000, 50000, 42000, 67000, 47296, 38438, 44000, 44716, 37800, 31370, 19400],
           }]
         };
       

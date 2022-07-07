@@ -36,9 +36,15 @@ router.get('/news', (req, res)=>{
 })
 
 router.get('/crypto_chart', (req, res)=>{
-
+    CryptosAPI
+    .getCryptoData()
+    .then((allData) => {
+        //res.send(JSON.stringify({allData}))
+        // res.render(`cryptos/list`, {cryptos: allCryptos.data.results} )
+        res.render(`chart_index`, {cryptos: allData.prices})
+    })
+    .catch(err => console.log(err));
     // res.render(`cryptos/crypto_chart`, {user: req.session.user})
-    res.render(`chart_index`)
     // .catch(err => console.log(err));
 
 })
