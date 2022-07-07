@@ -38,8 +38,8 @@ router.get('/news', (req, res)=>{
 router.get('/crypto_chart', (req, res)=>{
 
     // res.render(`cryptos/crypto_chart`, {user: req.session.user})
-    res.render("./chart_index.html")
-    .catch(err => console.log(err));
+    res.render(`chart_index`)
+    // .catch(err => console.log(err));
 
 })
 
