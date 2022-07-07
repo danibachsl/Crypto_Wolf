@@ -7,7 +7,7 @@ const User = require("../models/User.model");
 const Api = require("../services/ApiHandler");
 const CryptosAPI = new Api()
 
-router.get('/cryptos', isLoggedIn ,(req, res)=>{
+router.get('/cryptos', (req, res)=>{
     
     CryptosAPI
     .getAllCryptos()
@@ -19,7 +19,7 @@ router.get('/cryptos', isLoggedIn ,(req, res)=>{
     
 })
 
-router.get('/community', isLoggedIn ,(req, res)=>{
+router.get('/community', (req, res)=>{
 
     res.render(`community`, {user: req.session.user})
 
@@ -27,7 +27,7 @@ router.get('/community', isLoggedIn ,(req, res)=>{
 
 })
 
-router.get('/news', isLoggedIn ,(req, res)=>{
+router.get('/news', (req, res)=>{
 
     res.render(`news`, {user: req.session.user})
 
@@ -45,7 +45,7 @@ router.get('/crypto_chart', isLoggedIn ,(req, res)=>{
 
 
 
-router.post("/add-favorite", isLoggedIn ,(req, res) =>{
+router.post("/add-favorite", (req, res) =>{
 const query = { name, status, species, gender, image, apiId } = req.body
 const idToCheck = req.body.apiId;
     Crypto.find({apiId: idToCheck})
@@ -85,7 +85,7 @@ const idToCheck = req.body.apiId;
 })
 
 
-router.post("/delete-favorite", isLoggedIn, (req,res)=>{
+router.post("/delete-favorite", (req,res)=>{
     const {id} = req.body
     User.findByIdAndUpdate(req.user._id,{$pull : {favorites : id}})
     .then(()=>{
